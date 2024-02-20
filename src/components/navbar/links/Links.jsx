@@ -29,6 +29,15 @@ const Links = () => {
       {links.map((link) => (
         <NavLink key={link.title} item={link} />
       ))}
+      {session ? (
+        <>
+          {" "}
+          {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+          <button>Logout</button>
+        </>
+      ) : (
+        <NavLink item={{ title: "Login", path: "/login" }} />
+      )}
     </div>
   );
 };
